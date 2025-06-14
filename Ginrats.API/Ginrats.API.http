@@ -1,0 +1,6 @@
+@Ginrats.API_HostAddress = http://localhost:5248
+
+GET {{Ginrats.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
