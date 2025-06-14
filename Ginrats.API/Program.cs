@@ -1,4 +1,7 @@
 
+using Ginrats.API.Infra.Database;
+using Microsoft.EntityFrameworkCore;
+
 namespace Ginrats.API
 {
     public class Program
@@ -14,6 +17,10 @@ namespace Ginrats.API
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            builder.Services.AddDbContext<GinRatsContext>(options =>
+            {
+                options.UseNpgsql(builder.Configuration.GetConnectionString("Db"));
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
